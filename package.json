@@ -1,6 +1,6 @@
 {
   "name": "wt2doc",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "WebTemplate to Asciidoc documentation - a util by Bifrost for Bifrost ",
   "main": "lib/index.js",
   "bin": {

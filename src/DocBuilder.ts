@@ -45,7 +45,7 @@ export class DocBuilder {
     } else if (isSection(f.rmType)) {
       this.walkSection(f);
     } else if (f.rmType === 'CLUSTER') {
-      this.sb.append(`5+a|*${f.name}* + \n${f.rmType}: _${f.nodeId}_`);
+      this.appendClusterOrEntryRow(f);
       this.walkChildren(f);
     } else {
       switch (f.rmType) {
@@ -73,12 +73,22 @@ export class DocBuilder {
       });
     }
   }
+  /**
+   * Append a table row wi+th colspan to get all on ine line
+   * @param f the form elment
+   */
+  private appendClusterOrEntryRow(f: FormElement) {
+    this.sb.append(`5+a|*${f.name}* + \n${f.rmType}: _${f.nodeId}_`);
+    if (f.annotations && f.annotations.comment) {
+      this.sb.newline().append(`${f.annotations.comment}`);
+    }
+  }
   private walkEntry(f: FormElement) {
     this.sb.append(`== ${f.name}`);
     this.sb.append('[options="header", cols="3,3,5,5,30"]');
     this.sb.append('|====');
     this.sb.append('|NodeId|Attr.|RM Type| Navn |Beskrivelse');
-    this.sb.append(`5+a|*${f.name}* + \n${f.rmType}: _${f.nodeId}_`);
+    this.appendClusterOrEntryRow(f);
     if (f.children) {
       f.children.forEach((child) => {
         if (child.inContext !== undefined && child.inContext) {

@@ -10,7 +10,7 @@ const args = yargs.options({
   'out-file': { type: 'string', demandOption: true, alias: 'o' },
 }).argv;
 
-const spinner = ora(`Running test on ${args['web-template']}`).start();
+const spinner = ora(`Running doc generation on ${args['web-template']}`).start();
 
 const file = args['web-template'];
 const outFile = args['out-file'];
