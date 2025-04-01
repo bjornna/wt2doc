@@ -16,16 +16,24 @@ coverage
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
-
+build/
 # Optional npm cache directory
 .npm
-
 
 # dotenv environment variables file
 .env
 .env.test
 
-
 # Dependency directories
 node_modules/
 jspm_packages/
+
+# wt2docs folders
+tmp/
+out/hidden/
+templates/hidden/
+config/hidden/
+
+/out/tmp.md
+config/freshehr.json
+!/config/freshehr.json

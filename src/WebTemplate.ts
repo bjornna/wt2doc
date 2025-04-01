@@ -1,9 +1,10 @@
-import { FormElement } from './FormElement';
+import { TemplateNode } from './TemplateNodes';
 
 export interface WebTemplate {
   templateId: string;
+  semVer: string;
   version: string;
   defaultLanguage: string;
   languages: string[];
-  tree: FormElement;
+  tree: TemplateNode;
 }
